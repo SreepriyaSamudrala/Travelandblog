@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Registration Form</title>
+    <link href="index.html">
+    <link href="login.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+       
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('background.jpeg') no-repeat center center;
+            background-size: cover;
+            filter: brightness(50%); 
+            z-index: -1; 
+        }
+
+        .main {
+            background-color: rgba(255, 255, 255, 0.85); 
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            width: 380px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            color: #a74caf;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        label {
+            color: #555;
+            font-weight: bold;
+            width: 40%; 
+            text-align: left;
+        }
+
+        input, select {
+            width: 58%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            background-color: #4caf50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        .navbar {
+    position: absolute; /* or fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #8B5E3B; 
+    padding: 15px;
+    z-index: 1000; 
+}
+
+
+.navbar {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #8B5E3B; 
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    z-index: 1000; 
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px; 
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00bcd4;
+}
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+
+        <div class="logo">Travel@Blogs</div>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="registration.html">SIGN IN/SIGN UP</a>
+            <a href="travelguide.html">TRAVEL GUIDE</a>
+            <a href="#">TRIP ESSENTINALS</a>
+            <a href="aboutus.html">ABOUT US</a>
+        </div>
+    </nav>
+    <section>
+    <div class="main">
+        <h2>Register Now!</h2>
+        <form action="">
+            <div class="form-group">
+                <label for="first">First Name:</label>
+                <input type="text" id="first" name="first" required>
+            </div>
+
+            <div class="form-group">
+                <label for="last">Last Name:</label>
+                <input type="text" id="last" name="last" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mobile">Contact:</label>
+                <input type="text" id="mobile" name="mobile" maxlength="10" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            
+            <button type="submit">SignUp</button>
+            <div>Already Registered?<a href="Login.html">SignIn</a></div>
+        </form>
+    </div>
+</section>
+</body>
+
+</html>

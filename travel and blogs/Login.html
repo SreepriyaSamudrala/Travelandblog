@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            body {
+    background-image: url("login_backgound.png");
+    background-size: 100% 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+        .main {
+            background-color: rgba(255, 255, 255, 0.85); 
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            width: 380px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-left: 500px;
+            margin-top: 100px;
+        }
+        h1{
+            color: #a74caf;
+            margin-bottom: 15px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        label {
+            color: #555;
+            font-weight: bold;
+            width: 40%; 
+            text-align: left;
+        }
+
+        input, select {
+            width: 58%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            background-color: #4caf50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+         a{
+            text-decoration: none;
+            color: rgba(6, 159, 201, 0.365);
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        #Forgot{
+            margin-left: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SIGN IN</h1>
+    <div class="main">
+        <form action="index.html" method="GET">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="example@gmail.com">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+    <button type="submit">SIGN IN</button>
+
+    </form>
+    <div id="Forgot">Forgot Password?</div>
+</div>
+<script>
+    document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault(); 
+        window.location.href = "travelguide.html";
+    });
+</script>
+</body>
+</html>

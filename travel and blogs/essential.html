@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trip Essentials</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      padding-top: 100px; 
+    }
+
+    body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('background.jpeg') no-repeat center center;
+  background-size: cover;
+  filter: brightness(60%);
+  z-index: -1;
+}
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #8B5E3B;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 5px 10px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00bcd4;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    header p {
+      font-size: 1.1em;
+      color: #f0f0f0;
+    }
+
+    .essentials-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      font-size: 1.1em;
+      font-weight: bold;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      text-align: center;
+      color: #333;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    }
+
+    .tooltip {
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-10px);
+      background-color: #fff;
+      color: #333;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      font-size: 0.9em;
+      width: max-content;
+      max-width: 200px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 999;
+    }
+
+    .card:hover .tooltip {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 1em;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Travel@Blogs</div>
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="registration.html">SIGN IN/SIGN UP</a>
+      <a href="travelguide.html">TRAVEL GUIDE</a>
+      <a href="essential.html">TRIP ESSENTINALS</a>
+      <a href="aboutus.html">ABOUT US</a>
+    </div>
+  </nav>
+  <header>
+    <h1>🧳 Trip Essentials</h1>
+    <p>Everything you need for a smooth adventure!</p>
+  </header>
+  <main class="essentials-list">
+    <div class="card">
+      ✈️ Travel Tickets
+      <div class="tooltip">
+        • Flight e-ticket<br/>
+        • Boarding pass<br/>
+        • Travel itinerary<br/>
+        • Train or bus tickets<br/>
+        • QR codes or booking references
+      </div>
+    </div>
+    <div class="card">
+      🛂 Passport & Visa
+      <div class="tooltip">
+        • Valid passport<br/>
+        • Visa (if required)<br/>
+        • ID photos<br/>
+        • Copies of passport & visa<br/>
+        • Entry/exit stamps (check validity)
+      </div>
+    </div>
+    <div class="card">
+      🏨 Accommodation Info
+      <div class="tooltip">
+        • Hotel name<br/>
+        • Address<br/>
+        • Booking confirmation<br/>
+        • Emergency contact of host/lodging<br/>
+        • Hotel reservation confirmation
+      </div>
+    </div>
+    <div class="card">
+      💳 Cash & Cards
+      <div class="tooltip">
+        • Local currency<br/>
+        • Credit/debit cards<br/>
+        • Travel money pouch<br/>
+        • Small change for tips<br/>
+        • Currency conversion app
+      </div>
+    </div>
+    <div class="card">
+      📱 Phone & Charger
+      <div class="tooltip">
+        • Phone<br/>
+        • Charging cable<br/>
+        • Power bank<br/>
+        • Offline maps & translator app<br/>
+        •  SIM card or eSIM info
+      </div>
+    </div>
+    <div class="card">
+      🧼 Toiletries
+      <div class="tooltip">
+        • Toothbrush & paste<br/>
+        • Shampoo/soap<br/>
+        • Towel, deodorant<br/>
+        • Travel-sized lotion/sunscreen
+      </div>
+    </div>
+    <div class="card">
+      👕 Clothes & Shoes
+      <div class="tooltip">
+        • Weather-appropriate clothes<br/>
+        • Extra socks<br/>
+        • Sleepwear<br/>
+        • Swimwear<br/>
+        • Comfortable shoes
+      </div>
+    </div>
+    <div class="card">
+      💊 Medications
+      <div class="tooltip">
+        • Prescription meds<br/>
+        • First-aid kit<br/>
+        • Painkillers<br/>
+        • Allergy meds<br/>
+        • Motion sickness pills
+      </div>
+    </div>
+    <div class="card">
+      🍫 Snacks & Water
+      <div class="tooltip">
+        • Protein bars<br/>
+        • Fruits/nuts<br/>
+        • Reusable bottle<br/>
+        • Energy bars<br/>
+        • Chewing gum
+      </div>
+    </div>
+    <div class="card">
+      🗺️ Guidebook/Map
+      <div class="tooltip">
+        • City map<br/>
+        • Language tips<br/>
+        • Places to visit<br/>
+        • Emergency numbers<br/>
+        • Notes on attractions
+      </div>
+      </div>
+      <div class="card">
+        🏖️Beach
+        <div class="tooltip">
+          • Hat & Sunglasses<br/>
+          • Beach Towel or Blanket<br/>
+          • Water Bottle<br/>
+          • Waterproof Phone Case<br/>
+          • Sunscreen (SPF 30+)
+        </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Safe travels! 🌍</p>
+  </footer>
+
+</body>
+</html>

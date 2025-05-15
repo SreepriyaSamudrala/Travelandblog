@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travel@Blogs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background-color: #8B5E3B;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00bcd4;
+    }
+
+    .search-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-container input {
+      padding: 8px 35px 8px 35px;
+      border-radius: 5px 0 0 5px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      color: gray;
+      font-size: 1rem;
+    }
+
+    .search-btn {
+      padding: 8px 15px;
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .search-btn:hover {
+      background-color: #0097a7;
+    }
+    .top{
+      text-align: center;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      padding: 20px;
+    }
+
+    .destination-box {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      max-width: 700px;
+      margin: 20px auto;
+    }
+
+    .destination-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .destination-content {
+      padding: 20px;
+    }
+
+    .destination-content h2 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .section-title {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #0077cc;
+    }
+
+    ul.tips {
+      list-style: disc;
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    .rating {
+      margin-top: 20px;
+    }
+
+    .rating label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    select {
+      padding: 6px 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .saved-msg {
+      color: green;
+      font-size: 0.9em;
+      margin-left: 10px;
+    }
+    .main{
+      display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+    }
+    #charminar{
+      display: cover;
+    }
+
+
+    
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Travel@Blogs</div>
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="essential.html">TRIP ESSENTIALS</a>
+      <a href="aboutus.html">ABOUT US</a>
+
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="search" placeholder="Search" aria-label="Search" />
+        <button class="search-btn" type="submit">Search</button>
+      </div>
+    </div>
+  </nav>
+  <div class ="top">
+    <h1>🌍 Ultimate Travel Guide</h1>
+    <p>Explore destinations, tips & tools for your next adventure</p>
+  </div>
+  
+  <div class="main" id="destinations-container"></div>
+
+
+  <script>
+    const destinations = [
+      {
+        id: 'charminar',
+        name: 'Charminar, Hyderabad',
+        image: 'Charminar.jpg',
+        history: `Charminar, built in 1591 by Muhammad Quli Qutb Shah, is a symbol of Hyderabad. This stunning structure was erected to commemorate the end of a deadly plague and stands at the center of the city's old quarter, blending Indo-Islamic architecture with Persian influences.`,
+        tips: [
+          "Best time to visit is early morning or evening for cooler weather.",
+          "Don’t miss the Laad Bazaar nearby for bangles and souvenirs.",
+          "Weekdays are quieter than weekends.",
+          "Climb up the narrow staircase for a great view of Old City."
+        ]
+      },
+      {
+        id: 'tajmahal',
+        name: 'Taj Mahal, Agra',
+        image: 'taj-mahal.jpg',
+        history: `The Taj Mahal, built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal, is one of the most iconic monuments in the world. This white marble mausoleum is a UNESCO World Heritage Site.`,
+        tips: [
+          "Sunrise is the best time for photos and fewer crowds.",
+          "Closed on Fridays.",
+          "Book tickets online to skip long queues.",
+          "Photography is allowed but tripods are restricted."
+        ]
+      },
+      
+  {
+    id: 'qutubminar',
+    name: 'Qutub Minar, Delhi',
+    image: 'Qutub-minar.jpg',
+    history: `The Qutub Minar, a UNESCO World Heritage Site, is a 73-meter tall minaret built in 1193 by Qutb-ud-din Aibak. It represents the beginning of Muslim rule in India and showcases early Indo-Islamic architecture.`,
+    tips: [
+      "Try visiting during sunset for great lighting.",
+      "Wear comfortable shoes as there’s a lot to walk around.",
+      "Closed on some national holidays — check ahead.",
+      "Audio guides are available for rent at the entrance."
+    ]
+  },
+  {
+    id: 'akshardham',
+    name: 'Swaminarayan Akshardham, Delhi',
+    image: 'akshardham.jpg',
+    history: `Swaminarayan Akshardham in Delhi is a spiritual-cultural campus dedicated to Bhagwan Swaminarayan. Opened in 2005, it features intricate carvings, exhibitions on Indian history and culture, and the breathtaking Akshardham Mandir.`,
+    tips: [
+      "Electronics and bags are not allowed inside — lockers available.",
+      "Plan to spend at least 3–4 hours to see everything.",
+      "The musical fountain show in the evening is a must-watch.",
+      "Arrive early to avoid long entry lines, especially on weekends."
+    ]
+  },
+  {
+    id: 'agrafort',
+    name: 'Agra Fort, Agra',
+    image: 'agra-fort-.webp',
+    history: `Agra Fort, another UNESCO World Heritage Site, was built by Emperor Akbar in 1565. It served as the main residence of the Mughal emperors and is a magnificent example of Mughal architecture with red sandstone walls.`,
+    tips: [
+      "Hire a local guide for fascinating historical insights.",
+      "Wear a hat or cap in summer as it gets very hot.",
+      "Photography is allowed, but drones are restricted.",
+      "Don't miss the view of the Taj Mahal from the fort."
+    ]
+  },
+  {
+    id: 'hawamahal',
+    name: 'Hawa Mahal, Jaipur',
+    image: 'jaipur hawa mahal.jpg',
+    history: `Hawa Mahal, or "Palace of Winds", was built in 1799 by Maharaja Sawai Pratap Singh. This five-story pink sandstone structure allowed royal women to observe street festivities without being seen.`,
+    tips: [
+      "Visit early morning for the best photos and cool breeze.",
+      "Climb to the top for a panoramic view of Jaipur’s old city.",
+      "Carry water during hot weather.",
+      "Tickets are affordable and include museum access."
+    ]
+  },
+  {
+    id: 'grandcanyon',
+    name: 'Grand Canyon, Arizona',
+    image: 'Grandcanyon.jpg',
+    history: `The Grand Canyon, carved by the Colorado River over millions of years, is one of the most breathtaking natural wonders of the world. It became a national park in 1919 and is known for its layered red rock formations.`,
+    tips: [
+      "Visit the South Rim for the most iconic views and visitor facilities.",
+      "Sunrise and sunset offer the most stunning photo ops.",
+      "Stay hydrated — the dry climate can catch you off guard.",
+      "Book lodging well in advance during peak seasons."
+    ]
+  },
+  {
+    id: 'statueofliberty',
+    name: 'Statue of Liberty, New York',
+    image: 'Statue-of-Liberty.jpg',
+    history: `A gift from France in 1886, the Statue of Liberty is an enduring symbol of freedom and democracy. Located on Liberty Island in New York Harbor, it has welcomed millions of immigrants to the United States.`,
+    tips: [
+      "Book pedestal or crown access tickets in advance.",
+      "Take the early morning ferry to avoid crowds.",
+      "Visit Ellis Island Museum as part of the tour.",
+      "Photography from the boat gives great skyline shots."
+    ]
+  },
+  {
+    id: 'yellowstone',
+    name: 'Yellowstone National Park, Wyoming',
+    image: 'yellowstone.webp',
+    history: `Established in 1872, Yellowstone was the first national park in the world. It’s famous for its geothermal features like Old Faithful, stunning wildlife, and vast landscapes that stretch across Wyoming, Montana, and Idaho.`,
+    tips: [
+      "Keep a safe distance from all wildlife.",
+      "Plan your route — the park is huge and remote.",
+      "Check eruption times for Old Faithful in advance.",
+      "Summer months are busiest — visit early or late in the season."
+    ]
+  },
+  {
+    id: 'towerbridge',
+    name: 'Tower Bridge, London',
+    image: 'Tower Brige.jpg',
+    history: `Tower Bridge, completed in 1894, is one of London's most iconic landmarks. This combined bascule and suspension bridge spans the River Thames and offers panoramic views from its high-level walkways.`,
+    tips: [
+      "Visit during the day and again at night for a beautifully lit view.",
+      "Try to catch the bridge lifting — check the schedule online.",
+      "The glass floor walkway offers an exciting perspective below.",
+      "Buy tickets in advance to skip the queue."
+    ]
+  },
+  
+  {
+    id: 'neuschwanstein',
+    name: 'Neuschwanstein Castle, Germany',
+    image: 'Castle.jpg',
+    history: `Built by King Ludwig II in the 19th century, Neuschwanstein Castle in Bavaria is one of the most picturesque castles in the world. It inspired Disney's Sleeping Beauty Castle and is surrounded by stunning alpine scenery.`,
+    tips: [
+      "Book tickets online to avoid long queues.",
+      "Best time to visit is during spring or fall.",
+      "Wear comfortable shoes — there’s a bit of hiking involved.",
+      "Try the Marienbrücke for the best photos."
+    ]
+  },
+  {
+    id: 'edinburghcastle',
+    name: 'Edinburgh.jpg',
+    image: 'Edinburgh.jpg',
+    history: `Perched on Castle Rock, Edinburgh Castle dominates the skyline of Scotland’s capital. It has played a central role in Scottish history for centuries, from royal residence to military stronghold.`,
+    tips: [
+      "Go early to avoid crowds and get clear city views.",
+      "Check out the Crown Jewels and Stone of Destiny.",
+      "Join a guided tour for fascinating history.",
+      "Wear layers — it gets windy on the hilltop."
+    ]
+  },
+  {
+    id: 'keukenhof',
+    name: 'Keukenhof Gardens, Netherlands',
+    image: 'tulip gardens.jpg',
+    history: `Keukenhof, also known as the Garden of Europe, is one of the largest flower gardens in the world. Located in Lisse, it showcases millions of tulips, daffodils, and hyacinths each spring.`,
+    tips: [
+      "Visit between mid-March and mid-May for peak bloom.",
+      "Buy tickets online and consider early entry.",
+      "Bring a camera — it’s incredibly photogenic.",
+      "Bikes are available to explore the nearby tulip fields."
+    ]
+  },
+  {
+  id: 'brandenburg-gate',
+  name: 'Brandenburg Gate, Berlin',
+  image: 'gate berlin.jpg',
+  history: `The Brandenburg Gate is one of Germany’s most iconic landmarks. Built in the late 18th century, it has stood as a symbol of peace and unity — especially after the fall of the Berlin Wall in 1989.`,
+  tips: [
+    "Visit at night when it's beautifully illuminated.",
+    "It’s free and open 24/7 — no ticket needed.",
+    "Take a guided walking tour to learn its historical significance.",
+    "Great spot for photography and people-watching."
+  ]
+}
+
+
+    ];
+
+    function createDestinationBox(data) {
+      const container = document.getElementById('destinations-container');
+
+      const box = document.createElement('div');
+      box.className = 'destination-box';
+      box.id = data.id;
+
+      box.innerHTML = `
+        <img src="${data.image}" alt="${data.name}" class="destination-image">
+        <div class="destination-content">
+          <h2>${data.name}</h2>
+          <div class="section-title">History</div>
+          <p>${data.history}</p>
+
+          <div class="section-title">Travel Tips</div>
+          <ul class="tips">
+            ${data.tips.map(tip => `<li>${tip}</li>`).join('')}
+          </ul>
+
+          <div class="rating">
+            <label for="${data.id}-rating">Rate this destination:</label>
+            <select id="${data.id}-rating">
+              <option value="">Choose</option>
+              <option value="1">★☆☆☆☆</option>
+              <option value="2">★★☆☆☆</option>
+              <option value="3">★★★☆☆</option>
+              <option value="4">★★★★☆</option>
+              <option value="5">★★★★★</option>
+            </select>
+            <span class="saved-msg" id="${data.id}-msg"></span>
+          </div>
+
+          <div class="section-title">Feedback</div>
+          <textarea id="${data.id}-feedback" rows="4" placeholder="Share your thoughts..."></textarea>
+          <button class="feedback-btn" id="${data.id}-saveFeedback">Submit Feedback</button>
+          <span class="saved-msg" id="${data.id}-feedback-msg"></span>
+        </div>
+      `;
+
+      container.appendChild(box);
+
+      // Handle Rating
+      const select = document.getElementById(`${data.id}-rating`);
+      const msg = document.getElementById(`${data.id}-msg`);
+      const ratingKey = `rating-${data.id}`;
+      const savedRating = localStorage.getItem(ratingKey);
+      if (savedRating) {
+        select.value = savedRating;
+        msg.textContent = `You rated: ${"★".repeat(savedRating)}${"☆".repeat(5 - savedRating)}`;
+      }
+      select.addEventListener('change', () => {
+        const val = select.value;
+        if (val) {
+          localStorage.setItem(ratingKey, val);
+          msg.textContent = `You rated: ${"★".repeat(val)}${"☆".repeat(5 - val)}`;
+        }
+      });
+
+      // Handle Feedback
+      const feedbackInput = document.getElementById(`${data.id}-feedback`);
+      const feedbackBtn = document.getElementById(`${data.id}-saveFeedback`);
+      const feedbackMsg = document.getElementById(`${data.id}-feedback-msg`);
+      const feedbackKey = `feedback-${data.id}`;
+
+      const savedFeedback = localStorage.getItem(feedbackKey);
+      if (savedFeedback) {
+        feedbackInput.value = savedFeedback;
+        feedbackMsg.textContent = 'Your feedback is saved.';
+      }
+
+      feedbackBtn.addEventListener('click', () => {
+        const feedbackText = feedbackInput.value.trim();
+        if (feedbackText) {
+          localStorage.setItem(feedbackKey, feedbackText);
+          feedbackMsg.textContent = 'Thank you for your feedback!';
+        } else {
+          feedbackMsg.textContent = 'Please enter some feedback.';
+        }
+      });
+    }
+
+    destinations.forEach(createDestinationBox);
+  </script>
+</body>
+</html>
